@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boutique d'Archibald le Sorcier</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="exercices.js" defer></script>
+</head>
+
+<body class="bg-dark text-light">
+  <div class="container p-5 mb-4 bg-body-tertiary rounded-3">
+    <h1>Boutique d'Archibald le Sorcier <span id="blague_de_roger_le_sorcier">de pacotille</span> 🧙‍♂️</h1>
+
+    <div id="description_boutique">
+      <p>Bienvenue Aventurier, ici vous pouvez acheter diverses potions pour vos aventures !</p>
+    </div>
+
+    <button id="call_archibald" class="btn btn-primary">🛎️ Appeler Archibald</button>
+
+    <section class="row">
+      <h2 class="my-4">Les boîtes magiques</h2>
+
+      <div class="col">
+        <button id="btn_change_red" class="btn btn-danger">🪄 Change le 1er carré en rouge</button>
+      </div>
+      <div class="col">
+        <button id="btn_change_blue" class="btn btn-primary">🪄 Change les 2 premiers carré en bleu</button>
+      </div>
+      <div class="col">
+        <button id="btn_change_green" class="btn btn-success">🪄 Change tous les carrés en vert</button>
+      </div>
+    </section>
+
+    <section id="boites_magique" class="row mt-4 gap-5">
+      <div class="boite" style="width: 100px; height: 100px; background-color: grey"></div>
+      <div class="boite" style="width: 100px; height: 100px; background-color: grey"></div>
+      <div class="boite" style="width: 100px; height: 100px; background-color: grey"></div>
+    </section>
+
+    <h2 class="my-4">Les potions de la boutique</h2>
+
+    <section id="liste_potions" class="row">
+      <!-- Ceci est un exemple VISUEL, à supprimer ! -->
+      <!-- Le template à utiliser se situe dans la balise template -->
+      <div class="card bg-secondary col-5">
+        <div class="card-body">
+          <h5 class="card-title">Titre potion</h5>
+          <p>
+            Prix:
+            <span class="prix">0</span>
+            🪙
+          </p>
+          <p class="card-text">Description potion</p>
+          <button class="btn btn-primary">Acheter</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="row">
+      <h2 class="my-4">Formulaire d'ajout de potions</h2>
+
+      <form class="form">
+        <div class="form-group form-nom">
+          <label>Nom</label>
+          <input type="text" name="nom" class="form-control" />
+        </div>
+
+        <div class="form-group form-description">
+          <label>Description</label>
+          <input type="text" name="description" class="form-control" />
+        </div>
+
+        <div class="form-group form-prix">
+          <label>Prix 🪙</label>
+          <input type="number" name="prix" class="form-control" />
+        </div>
+
+        <button class="btn btn-primary mt-3">Ajouter à la boutique</button>
+        <div class="invalid-feedback">Tu dois remplir tous les champs pour ajouter une potion à la boutique.</div>
+      </form>
+    </section>
+
+    <section class="mirror-section">
+      <h2 class="my-4">Le Miroir Magique</h2>
+      <p class="text-muted">Passe ta souris sur le miroir pour voir ton véritable reflet...</p>
+
+      <div class="mirror-container">
+        <div id="magic-mirror" class="magic-mirror">
+          <div class="mirror-frame">
+            <div class="mirror-surface">
+              <div class="mirror-reflection hidden">
+                <img src="baron.png" alt="Reflet" class="baron-image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="genealogy-section">
+      <h2 class="my-4">L'Arbre Généalogique des Potions</h2>
+      <p class="text-muted">Explore la hiérarchie des potions et ajoute des badges selon leur position...</p>
+
+      <div id="potion-tree" class="potion-tree">
+        <div class="potion-category" data-category="soin">
+          <h3 class="category-title">Potions de Soin</h3>
+          <ul class="potion-list">
+            <li class="potion-item">Potion de soin mineure</li>
+            <li class="potion-item">Potion de soin</li>
+            <li class="potion-item">Potion de soin majeure</li>
+          </ul>
+        </div>
+        <div class="potion-category" data-category="magie">
+          <h3 class="category-title">Potions de Magie</h3>
+          <ul class="potion-list">
+            <li class="potion-item">Potion de mana</li>
+            <li class="potion-item">Potion d'intelligence</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="labels-section">
+      <h2 class="my-4">Les Étiquettes Magiques</h2>
+      <p class="text-muted">Découvre les informations cachées sur les potions...</p>
+
+      <div id="labeled-potions" class="row">
+        <div class="card col-md-5 labeled-potion" data-rarete="rare" data-effet-secondaire="Peut causer des vertiges"
+          data-duree="2 heures">
+          <div class="card-body">
+            <h5 class="card-title">Potion d'Invisibilité</h5>
+            <p class="card-text">Rend invisible pendant un court moment.</p>
+            <button class="btn btn-info btn-sm show-info">ℹ️ Plus d'infos</button>
+            <div class="potion-info hidden"></div>
+          </div>
+        </div>
+        <div class="card col-md-5 labeled-potion" data-rarete="commun" data-effet-secondaire="Aucun"
+          data-duree="30 minutes">
+          <div class="card-body">
+            <h5 class="card-title">Potion de Vitesse</h5>
+            <p class="card-text">Augmente la vitesse de déplacement.</p>
+            <button class="btn btn-info btn-sm show-info">ℹ️ Plus d'infos</button>
+            <div class="potion-info hidden"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="validation-section">
+      <h2 class="my-4">Commande de Potion Personnalisée</h2>
+      <p class="text-muted">Remplis le formulaire avec validation en temps réel...</p>
+
+      <form id="custom-potion-form" class="form">
+        <div class="form-group">
+          <label>Nom de la potion <span class="required">*</span></label>
+          <input type="text" id="potion-name" name="name" class="form-control" placeholder="Min. 3 caractères" />
+          <div class="validation-feedback"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Ingrédient principal <span class="required">*</span></label>
+          <input type="text" id="potion-ingredient" name="ingredient" class="form-control"
+            placeholder="Min. 3 caractères" />
+          <div class="validation-feedback"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Prix (pièces d'or) <span class="required">*</span></label>
+          <input type="number" id="potion-price" name="price" class="form-control" placeholder="Min. 1" min="1" />
+          <div class="validation-feedback"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3" disabled>Commander</button>
+      </form>
+    </section>
+
+    <section class="calculator-section">
+      <h2 class="my-4">Panier de Commande</h2>
+      <p class="text-muted">Sélectionne les quantités et vois le total se calculer automatiquement...</p>
+
+      <div id="shopping-cart" class="shopping-cart">
+        <div class="cart-item">
+          <div class="item-info">
+            <h5>Potion de Soin</h5>
+            <p class="item-price">Prix unitaire: <span class="unit-price">10</span> 🪙</p>
+          </div>
+          <div class="item-controls">
+            <label>Quantité:</label>
+            <input type="number" class="quantity-input" value="0" min="0" max="99" data-price="10" />
+            <p class="item-total">Total: <span class="total-price">0</span> 🪙</p>
+          </div>
+        </div>
+
+        <div class="cart-item">
+          <div class="item-info">
+            <h5>Potion de Mana</h5>
+            <p class="item-price">Prix unitaire: <span class="unit-price">15</span> 🪙</p>
+          </div>
+          <div class="item-controls">
+            <label>Quantité:</label>
+            <input type="number" class="quantity-input" value="0" min="0" max="99" data-price="15" />
+            <p class="item-total">Total: <span class="total-price">0</span> 🪙</p>
+          </div>
+        </div>
+
+        <div class="cart-item">
+          <div class="item-info">
+            <h5>Potion de Force</h5>
+            <p class="item-price">Prix unitaire: <span class="unit-price">20</span> 🪙</p>
+          </div>
+          <div class="item-controls">
+            <label>Quantité:</label>
+            <input type="number" class="quantity-input" value="0" min="0" max="99" data-price="20" />
+            <p class="item-total">Total: <span class="total-price">0</span> 🪙</p>
+          </div>
+        </div>
+
+        <div class="cart-total">
+          <h3>Total de la commande: <span id="grand-total">0</span> 🪙</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-section">
+      <h2 class="my-4">Recherche de Potions</h2>
+      <p class="text-muted">Utilise la barre de recherche pour filtrer les potions...</p>
+
+      <div class="search-bar">
+        <input type="text" id="search-input" class="form-control" placeholder="🔍 Rechercher une potion..." />
+        <p id="search-results-count" class="search-count"></p>
+      </div>
+
+      <div id="searchable-potions" class="row mt-4">
+        <div class="card col-md-3 searchable-potion">
+          <div class="card-body">
+            <h5 class="card-title">Potion de Soin</h5>
+            <p class="card-text">Restaure la santé</p>
+          </div>
+        </div>
+        <div class="card col-md-3 searchable-potion">
+          <div class="card-body">
+            <h5 class="card-title">Potion de Mana</h5>
+            <p class="card-text">Restaure la magie</p>
+          </div>
+        </div>
+        <div class="card col-md-3 searchable-potion">
+          <div class="card-body">
+            <h5 class="card-title">Potion de Force</h5>
+            <p class="card-text">Augmente la force</p>
+          </div>
+        </div>
+        <div class="card col-md-3 searchable-potion">
+          <div class="card-body">
+            <h5 class="card-title">Potion d'Invisibilité</h5>
+            <p class="card-text">Rend invisible</p>
+          </div>
+        </div>
+        <div class="card col-md-3 searchable-potion">
+          <div class="card-body">
+            <h5 class="card-title">Potion de Vitesse</h5>
+            <p class="card-text">Augmente la vitesse</p>
+          </div>
+        </div>
+        <div class="card col-md-3 searchable-potion">
+          <div class="card-body">
+            <h5 class="card-title">Potion d'Intelligence</h5>
+            <p class="card-text">Augmente l'intelligence</p>
+          </div>
+        </div>
+      </div>
+      <p id="no-results" class="no-results hidden">Aucune potion trouvée 😢</p>
+    </section>
+  </div>
+
+  <template id="template_potion">
+    <div class="card bg-secondary col-5">
+      <div class="card-body">
+        <h5 class="card-title nom_potion">Titre potion</h5>
+        <p>
+          Prix:
+          <span class="prix_potion">0</span>
+          🪙
+        </p>
+        <p class="card-text description_potion">Description potion</p>
+        <button class="btn btn-primary">Acheter</button>
+      </div>
+    </div>
+  </template>
+</body>
+
+</html>
