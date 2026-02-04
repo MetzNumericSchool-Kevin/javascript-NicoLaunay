@@ -13,4 +13,4 @@ let health_potion = {
     "price": 50,
     "stock": 10
 }
-console.log(health_potion)
+console.log(health_potion.name)
