@@ -19,23 +19,26 @@ const CURRENCY = `🪙`
 let nb_health_potion = 5
 let price_health_potion = 20
 let is_shop_open = false
-console.log(`Bienvenue dans mon humble boutique Aventurier. Que veux-tu savoir ? 🤔`)
-console.log(`1. Le nom de la boutique`)
-console.log(`2. Le nom du Sorcier`)
-console.log(`3. Le prix d'un potion de soin`)
-console.log(`4. La quantité d'une potion de soin`)
-let choice = prompt()
+
+let choice = parseInt(prompt(`Bienvenue dans mon humble boutique Aventurier. Que veux-tu savoir ? 🤔
+1. Le nom de la boutique
+2. Le nom du Sorcier
+3. Le prix d'un potion de soin
+4. La quantité d'une potion de soin`))
+
 switch (choice) {
-    case "1":
+    case 1:
         console.log(`Le nom de la boutique est ${SHOP_NAME}`)
         break
-    case "2":
+    case 2:
         console.log(`Le nom du sorcier est ${WIZ_NAME}`)
         break
-    case "3":
+    case 3:
         console.log(`Le prix d'une potion de soin est ${price_health_potion}${CURRENCY}`)
         break
-    case "4":
+    case 4:
         console.log(`Il reste ${nb_health_potion} potions de soin`)
         break
+    default:
+        console.log(`Mh... Désolé aventurier, je ne comprends pas ce que tu souhaites. Refais ton choix ! 😕`)
 }
