@@ -31,21 +31,16 @@ const inventory = [
 // 2. Cette fonction doit afficher dans la console : `Salutations Aventurier ! Je me nomme <nom_sorcier> pour vous servir.`
 // 3. Appelle ta fonction en lui passant la constante `nom_sorcier` en argument
 
+// ✍️ TON CODE ICI
+// Crée ta fonction salutations() ci-dessous
+
 function salutations(wizard_name) {
   console.log(`Salutations Aventurier ! Je me nomme ${wizard_name} pour vous servir.`)
 }
 
-salutations(wizard_name)
-
-// ✍️ TON CODE ICI
-// Crée ta fonction salutations() ci-dessous
-
-
-
-
 // 🧪 TESTS - Décommente pour tester
 // console.log("=== EXERCICE 1 ===");
-// salutations(nom_sorcier);
+// salutations(wizard_name);
 
 
 // ============================================
@@ -53,17 +48,30 @@ salutations(wizard_name)
 // ============================================
 // 🎯 Objectif : Créer une fonction qui calcule le prix total d'une commande
 // 📖 Consignes : Consulte le README pour les détails
+// 1. Crée une fonction nommée `calculerPrixTotal` avec **3 paramètres** :
+//    - `id_potion` : l'identifiant de la potion (ex: "potion_soin")
+//    - `inventaire` : le tableau d'inventaire
+//    - `quantite` : la quantité demandée (valeur par défaut = 1)
+// 2. La fonction doit :
+//    - Trouver la potion dans l'inventaire grâce à son `id`
+//    - Calculer le prix total : `prix de la potion × quantité`
+//    - Retourner ce prix total
+// 3. Teste ta fonction en affichant le prix pour 3 potions de soin
 
 // ✍️ TON CODE ICI
 // Crée ta fonction calculerPrixTotal() ci-dessous
 
-
-
+function calculateTotalPrice(id_potion, inventory, amount=1) {
+  let desired_potion = inventory.find(potion => {
+    return potion.id === id_potion
+  })
+  return desired_potion.price*amount
+}
 
 // 🧪 TESTS - Décommente pour tester
-// console.log("=== EXERCICE 2 ===");
-// const prix = calculerPrixTotal("potion_soin", inventaire, 3);
-// console.log("Prix pour 3 potions:", prix, "🪙");
+console.log("=== EXERCICE 2 ===");
+const price = calculateTotalPrice("potion_soin", inventory, 3);
+console.log("Prix pour 3 potions:", price, "🪙");
 
 
 // ============================================
