@@ -4,19 +4,19 @@
 // Copie ces constantes au début de ton fichier
 // Tu les utiliseras dans tous les exercices
 
-const nom_sorcier = "Archibald 🧙‍♂️";
+const wizard_name = "Frieren 🧙‍♂️";
 
-const manuel_de_fabrication = {
-  potion_soin: {
+const crafting_manual = {
+  health_potion: {
     ingredients: ["eau_de_source", "ecaille_de_dragon", "poudre_de_diamant"],
-    temps_de_fabrication: 3, // exprimé en secondes
+    craft_time: 3, // exprimé en secondes
   },
 };
 
-const inventaire = [
+const inventory = [
   {
     id: "potion_soin", // identifiant unique de la potion
-    prix: 10,
+    price: 10,
     stock: 0,
   },
 ];
@@ -27,6 +27,15 @@ const inventaire = [
 // ============================================
 // 🎯 Objectif : Créer ta première fonction qui affiche un message personnalisé
 // 📖 Consignes : Consulte le README pour les détails
+// 1. Crée une fonction nommée `salutations` qui prend **un paramètre** : `nom_sorcier`
+// 2. Cette fonction doit afficher dans la console : `Salutations Aventurier ! Je me nomme <nom_sorcier> pour vous servir.`
+// 3. Appelle ta fonction en lui passant la constante `nom_sorcier` en argument
+
+function salutations(wizard_name) {
+  console.log(`Salutations Aventurier ! Je me nomme ${wizard_name} pour vous servir.`)
+}
+
+salutations(wizard_name)
 
 // ✍️ TON CODE ICI
 // Crée ta fonction salutations() ci-dessous
