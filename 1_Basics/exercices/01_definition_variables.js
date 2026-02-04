@@ -12,9 +12,9 @@
 
 // Affiche dans la console les informations de ta boutique avec `console.log`.
 const SHOP_NAME = "La Cruche Fêlée"
-var nb_health_potion = 5
-var price_health_potion = 20
-var is_shop_open = true
+let nb_health_potion = 5
+let price_health_potion = 20
+let is_shop_open = true
 
 console.log("-- " + SHOP_NAME + " --")
 console.log("Potions de soin :")
