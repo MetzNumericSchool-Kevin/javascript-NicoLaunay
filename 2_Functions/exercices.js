@@ -106,11 +106,11 @@ function createPotion(id, price=10, stock=1) {
 }
 
 // 🧪 TESTS - Décommente pour tester
-console.log("=== EXERCICE 3 ===");
-const potion1 = createPotion("potion_mana", 15, 5);
-console.log(potion1);
-const potion2 = createPotion("potion_force");
-console.log(potion2);
+// console.log("=== EXERCICE 3 ===");
+// const potion1 = createPotion("potion_mana", 15, 5);
+// console.log(potion1);
+// const potion2 = createPotion("potion_force");
+// console.log(potion2);
 
 
 // ============================================
@@ -118,18 +118,41 @@ console.log(potion2);
 // ============================================
 // 🎯 Objectif : Créer une fonction qui ajoute ou met à jour une potion
 // 📖 Consignes : Consulte le README pour les détails
+// 1. Crée une fonction nommée `ajouterPotion` avec **2 paramètres** :
+//    - `inventaire` : le tableau d'inventaire
+//    - `potion` : l'objet potion à ajouter
+// 2. La fonction doit :
+//    - **Vérifier si la potion existe déjà** dans l'inventaire (même `id`)
+//    - **Si elle existe** : mettre à jour le prix ET ajouter le stock au stock existant
+//    - **Si elle n'existe pas** : ajouter la nouvelle potion dans l'inventaire
+//    - **Après chaque ajout** : trier l'inventaire du plus cher au moins cher avec la méthode `sort()`
+// 3. Teste ta fonction en ajoutant plusieurs potions
 
 // ✍️ TON CODE ICI
 // Crée ta fonction ajouterPotion() ci-dessous
 
-
+function addPotion(inventory, potion) {
+  let potion_already_exists = false
+  for (p of inventory) {
+    if (p.id === potion.id) {
+      p.price = potion.price
+      p.stock += potion.stock
+      potion_already_exists = true
+      break
+    }
+  }
+  if (!potion_already_exists) {
+    inventory.push(potion)
+    inventory.sort((a, b) => b.price - a.price);
+  }
+}
 
 
 // 🧪 TESTS - Décommente pour tester
-// console.log("=== EXERCICE 4 ===");
-// const nouvellePotion = fabriquerPotion("potion_mana", 20, 3);
-// ajouterPotion(inventaire, nouvellePotion);
-// console.log("Inventaire après ajout:", inventaire);
+console.log("=== EXERCICE 4 ===")
+const new_potion = createPotion("potion_mana", 20, 3)
+addPotion(inventory, new_potion)
+console.log("Inventaire après ajout:", inventory)
 
 
 // ============================================
