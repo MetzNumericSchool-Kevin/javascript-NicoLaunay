@@ -69,9 +69,9 @@ function calculateTotalPrice(id_potion, inventory, amount=1) {
 }
 
 // 🧪 TESTS - Décommente pour tester
-console.log("=== EXERCICE 2 ===");
-const price = calculateTotalPrice("potion_soin", inventory, 3);
-console.log("Prix pour 3 potions:", price, "🪙");
+// console.log("=== EXERCICE 2 ===");
+// const price = calculateTotalPrice("potion_soin", inventory, 3);
+// console.log("Prix pour 3 potions:", price, "🪙");
 
 
 // ============================================
@@ -79,19 +79,38 @@ console.log("Prix pour 3 potions:", price, "🪙");
 // ============================================
 // 🎯 Objectif : Créer une fonction qui fabrique un nouvel objet potion
 // 📖 Consignes : Consulte le README pour les détails
+// 1. Crée une fonction nommée `fabriquerPotion` avec **3 paramètres** :
+//    - `id` : l'identifiant de la potion
+//    - `prix` : le prix de la potion (valeur par défaut = 10)
+//    - `stock` : le stock initial (valeur par défaut = 1)
+// 2. La fonction doit retourner un **nouvel objet** avec la structure suivante :
+//    ```js
+//    {
+//      id: "...",
+//      prix: ...,
+//      stock: ...
+//    }
+//    ```
+// 3. Teste ta fonction en créant plusieurs potions avec des prix et stocks différents
+// 4. Affiche chaque potion créée dans la console
 
 // ✍️ TON CODE ICI
 // Crée ta fonction fabriquerPotion() ci-dessous
 
-
-
+function createPotion(id, price=10, stock=1) {
+  return {
+    id: id,
+    price: price,
+    stock: stock
+  }
+}
 
 // 🧪 TESTS - Décommente pour tester
-// console.log("=== EXERCICE 3 ===");
-// const potion1 = fabriquerPotion("potion_mana", 15, 5);
-// console.log(potion1);
-// const potion2 = fabriquerPotion("potion_force");
-// console.log(potion2);
+console.log("=== EXERCICE 3 ===");
+const potion1 = createPotion("potion_mana", 15, 5);
+console.log(potion1);
+const potion2 = createPotion("potion_force");
+console.log(potion2);
 
 
 // ============================================
